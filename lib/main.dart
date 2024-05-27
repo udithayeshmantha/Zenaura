@@ -9,9 +9,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "ZENAURA",
-      home: Scaffold(),
+      home: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Color.fromRGBO(100, 61, 144, 1), Colors.purple],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter),
+          ),
+        ),
+      ),
     );
   }
 }
