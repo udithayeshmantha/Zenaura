@@ -20,6 +20,29 @@ class MyApp extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter),
           ),
+          child: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Welcome to",
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w100,
+                  ),
+                ),
+                Text(
+                  "ZENAURA",
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
