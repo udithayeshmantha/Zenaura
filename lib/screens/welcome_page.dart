@@ -5,6 +5,13 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Wlecome to ZENAURA');
+    return Scaffold(
+      appBar: AppBar(),
+      body: Stack(
+        children: [
+          Image.asset('assets/images/WelcomePage_bg.jpg', fit: BoxFit.cover),
+        ],
+      ),
+    );
   }
 }
