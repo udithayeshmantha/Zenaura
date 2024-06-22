@@ -1,6 +1,6 @@
-# zenaura
+# Medication Music App
 
-A new Flutter project.
+A new Flutter project for a medication music app.
 
 ## Getting Started
 
@@ -14,3 +14,23 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Features
+
+- Medication reminders
+- Music player integration
+- Personalized playlists
+- Sleep timer
+
+## Screenshots
+
+![Screenshot 1](/path/to/screenshot1.png)
+![Screenshot 2](/path/to/screenshot2.png)
+
+## Contributing
+
+Contributions are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
