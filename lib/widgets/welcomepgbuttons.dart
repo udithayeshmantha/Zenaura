@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zenaura/screens/login_page.dart';
 
 class WelcomePageButtons extends StatelessWidget {
-  const WelcomePageButtons({super.key, this.ButtonText});
+  const WelcomePageButtons({super.key, this.ButtonText, required this.onTap});
   final String? ButtonText;
+  final Widget? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class WelcomePageButtons extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (e) => const LoginPage(),
+            builder: (e) => onTap!,
           ),
         );
       },

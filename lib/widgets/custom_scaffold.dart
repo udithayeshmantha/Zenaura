@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-  const CustomScaffold({super.key, required this.child});
+  const CustomScaffold(
+      {super.key, required this.child, required TextStyle style});
   final Widget? child;
   @override
   Widget build(BuildContext context) {
