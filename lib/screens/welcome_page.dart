@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zenaura/widgets/Custom_scaffold.dart';
+import 'package:zenaura/widgets/welcomepgbuttons.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -12,26 +13,42 @@ class WelcomePage extends StatelessWidget {
       child: Column(
         children: [
           Flexible(
+              flex: 8,
               child: Container(
-            child: Center(
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: const TextSpan(children: [
-                  TextSpan(
-                      text: 'Welcome to\n',
-                      style: TextStyle(
-                          fontSize: 45.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  TextSpan(text: 'Zenaura')
-                ]),
-              ),
-            ),
-          )),
-          Flexible(
-              child: Container(
-            child: const Text('Welcome to Zenaura!'),
-          )),
+                child: Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(children: [
+                      TextSpan(
+                          text: 'Welcome to\n',
+                          style: TextStyle(
+                              fontSize: 40.0,
+                              fontWeight: FontWeight.w200,
+                              color: Colors.white)),
+                      TextSpan(
+                          text: 'Zenaura',
+                          style: TextStyle(
+                              fontSize: 55.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))
+                    ]),
+                  ),
+                ),
+              )),
+          const Flexible(
+              flex: 1,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: WelcomePageButtons(
+                      ButtonText: 'Sign up',
+                    )),
+                    Expanded(child: WelcomePageButtons(ButtonText: 'Log in')),
+                  ],
+                ),
+              )),
         ],
       ),
     );
