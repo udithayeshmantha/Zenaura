@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zenaura/screens/login_page.dart';
 import 'package:zenaura/screens/signup_page.dart';
-import 'package:zenaura/widgets/Custom_scaffold.dart';
+import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:zenaura/widgets/welcomepgbuttons.dart';
 
 class WelcomePage extends StatelessWidget {
