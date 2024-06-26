@@ -45,10 +45,22 @@ class WelcomePage extends StatelessWidget {
                         child: WelcomePageButtons(
                       ButtonText: 'Sign up',
                       onTap: SignupPage(),
+                      color: Colors.transparent,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
                     )),
                     Expanded(
                         child: WelcomePageButtons(
-                            ButtonText: 'Log in', onTap: LoginPage())),
+                      ButtonText: 'Log in',
+                      onTap: LoginPage(),
+                      color: Colors.white,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
+                    )),
                   ],
                 ),
               )),
