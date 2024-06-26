@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zenaura/screens/login_page.dart';
 import 'package:zenaura/screens/signup_page.dart';
+import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:zenaura/widgets/welcomepgbuttons.dart';
 
@@ -35,31 +36,25 @@ class WelcomePage extends StatelessWidget {
                   ),
                 ),
               )),
-          const Flexible(
+          Flexible(
               flex: 1,
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                         child: WelcomePageButtons(
                       ButtonText: 'Sign up',
                       onTap: SignupPage(),
                       color: Colors.transparent,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold),
+                      textColor: Colors.white,
                     )),
                     Expanded(
                         child: WelcomePageButtons(
                       ButtonText: 'Log in',
                       onTap: LoginPage(),
                       color: Colors.white,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold),
+                      textColor: lightColorScheme.primary,
                     )),
                   ],
                 ),
