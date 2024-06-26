@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -171,7 +171,50 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           child: const Text('Sign up'),
                         ),
-                      )
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              thickness: 0.7,
+                              color: Colors.grey.withOpacity(0.5),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 0,
+                              horizontal: 10,
+                            ),
+                            child: Text(
+                              'Sign up with',
+                              style: TextStyle(
+                                color: Colors.black45,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              thickness: 0.7,
+                              color: Colors.grey.withOpacity(0.5),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(BoxIcons.bxl_apple),
+                          Icon(BoxIcons.bxl_google),
+                          Icon(BoxIcons.bxl_facebook),
+                        ],
+                      ),
                     ],
                   ),
                 ),
