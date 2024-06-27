@@ -45,14 +45,14 @@ class WelcomePage extends StatelessWidget {
                     const Expanded(
                         child: WelcomePageButtons(
                       ButtonText: 'Sign up',
-                      onTap: SignupPage(),
+                      onTap: SignUpPage(),
                       color: Colors.transparent,
                       textColor: Colors.white,
                     )),
                     Expanded(
                         child: WelcomePageButtons(
                       ButtonText: 'Log in',
-                      onTap: LoginPage(),
+                      onTap: const LoginPage(),
                       color: Colors.white,
                       textColor: lightColorScheme.primary,
                     )),
