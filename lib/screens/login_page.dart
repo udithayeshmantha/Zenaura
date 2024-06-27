@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 6,
             child: Container(
               padding: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 20.0),
               decoration: const BoxDecoration(
@@ -169,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                               );
                             }
                           },
-                          child: const Text('Sign up'),
+                          child: const Text('Log in'),
                         ),
                       ),
                       const SizedBox(
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                               horizontal: 10,
                             ),
                             child: Text(
-                              'Sign up with',
+                              'Log in with',
                               style: TextStyle(
                                 color: Colors.black45,
                               ),
