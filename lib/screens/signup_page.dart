@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/screens/login_page.dart';
+import 'package:zenaura/screens/terms_page.dart';
 import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -162,16 +164,26 @@ class _SignUpScreenState extends State<SignUpPage> {
                             activeColor: lightColorScheme.primary,
                           ),
                           const Text(
-                            'I agree to the processing of ',
+                            'I agree to  ',
                             style: TextStyle(
                               color: Colors.black45,
                             ),
                           ),
-                          Text(
-                            'Personal data',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: lightColorScheme.primary,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (e) => TermsPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Terms and Conditions',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: lightColorScheme.primary,
+                              ),
                             ),
                           ),
                         ],
@@ -195,7 +207,7 @@ class _SignUpScreenState extends State<SignUpPage> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text(
-                                        'Please agree to the processing of personal data')),
+                                        'Please agree to Terms and Conditions')),
                               );
                             }
                           },
@@ -265,7 +277,7 @@ class _SignUpScreenState extends State<SignUpPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (e) => const SignUpPage(),
+                                  builder: (e) => const LoginPage(),
                                 ),
                               );
                             },
