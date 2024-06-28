@@ -15,11 +15,24 @@ class HomeScaffold extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/images/welcomepage_bg.jpg',
+            'assets/images/home_bg.png',
+            colorBlendMode: BlendMode.srcOver,
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
           ),
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: [
+                  Colors.black87,
+                  Colors.black54,
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
