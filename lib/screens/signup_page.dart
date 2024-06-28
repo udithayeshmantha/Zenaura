@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/screens/home.dart';
 import 'package:zenaura/screens/login_page.dart';
 import 'package:zenaura/screens/terms_page.dart';
 import 'package:zenaura/themes/theme.dart';
@@ -198,6 +199,12 @@ class _SignUpScreenState extends State<SignUpPage> {
                           onPressed: () {
                             if (_formSignupKey.currentState!.validate() &&
                                 agreePersonalData) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (e) => const Home(),
+                                ),
+                              );
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Processing Data'),

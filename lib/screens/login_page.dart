@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/screens/home.dart';
 import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -156,6 +157,12 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             if (_formLoginKey.currentState!.validate() &&
                                 rememberPassword) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (e) => const Home(),
+                                ),
+                              );
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Processing Data'),

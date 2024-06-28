@@ -16,3 +16,6 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+// Add the following line to update Gradle version
+wrapper.gradleVersion = '7.6.3'
