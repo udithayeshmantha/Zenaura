@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zenaura/screens/Main_tab_view.dart';
+import 'package:zenaura/screens/MainTabView.dart';
 import 'package:zenaura/screens/login_page.dart';
 import 'package:zenaura/screens/terms_page.dart';
 import 'package:zenaura/themes/theme.dart';
@@ -202,7 +202,7 @@ class _SignUpScreenState extends State<SignUpPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (e) => const MainTabview(),
+                                  builder: (e) => const Maintabview(),
                                 ),
                               );
                               ScaffoldMessenger.of(context).showSnackBar(
