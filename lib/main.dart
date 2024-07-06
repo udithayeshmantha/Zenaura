@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zenaura/screens/welcome_page.dart';
+// import 'package:zenaura/screens/welcome_page.dart';
+import 'package:zenaura/admin/them/them.dart';
+
+
+import 'admin/adminpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return  MaterialApp(
+       debugShowCheckedModeBanner: false,
       title: "Zenaura",
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const WelcomePage(),
+      home:  const AdminPage(),
+      theme: light,
+      darkTheme: dark,
     );
   }
 }
