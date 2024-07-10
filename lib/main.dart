@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/admin/adminpage.dart';
+//import 'package:zenaura/admin/adminpages/navbar.dart';
+
 // import 'package:zenaura/screens/welcome_page.dart';
 import 'package:zenaura/admin/them/them.dart';
 
 
-import 'admin/adminpage.dart';
+//import 'admin/adminpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
        debugShowCheckedModeBanner: false,
       title: "Zenaura",
       home:  const AdminPage(),
-      theme: light,
+      //theme: light,
       darkTheme: dark,
     );
   }
