@@ -5,6 +5,16 @@ ThemeData light = ThemeData(
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.deepPurple,
     ),
+
+
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        unselectedItemColor: Colors.black87,
+        selectedItemColor: Colors.grey,
+
+    ),
+
+
+
     colorScheme: const ColorScheme.light(
      // background : Colors.deepPurple,
       primary: Colors.purple,
@@ -16,6 +26,12 @@ ThemeData dark = ThemeData(
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.black,
     ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+     unselectedItemColor: Colors.white,
+     selectedItemColor: Colors.grey,
+     backgroundColor: Colors.black,
+      ),
+
   colorScheme: const ColorScheme.dark(
    // background : Colors.black,
     primary: Colors.grey,
