@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart%20';
 //import 'package:flutter/widgets.dart';
-//import 'package:zenaura/admin/shared/constants/ghaps.dart';
+
+import 'package:zenaura/screens/login_page.dart';
+import 'package:zenaura/screens/signup_page.dart';
+
+import 'adminpages/navbar.dart';
 
 
 class AdminPage extends StatefulWidget {
@@ -12,12 +16,11 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
+  int _selectedIndex =0;
   final List<Widget> _widgetOptions =<Widget> [
-   Container(
-
-   ),
-    Container(),
-    Container(),
+   const SignUpPage(),
+    const LoginPage(),
+    const Navbar(),
     Container(),
     Container(),
     Container(),
@@ -26,19 +29,21 @@ class _AdminPageState extends State<AdminPage> {
     Container(),
   ];
 
-  late int _selectedIndex =0;
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
         title:  const Text("Admin panel"),
       ),
-     bottomNavigationBar: MediaQuery.of(context).size.width < 640?
+
+      bottomNavigationBar: MediaQuery.of(context).size.width < 640?
     BottomNavigationBar(
-       onTap: (int index){
-         index =0;
-         setState(() {
-           _selectedIndex = index;
+     // _widgetOptions[_selectedIndex],
+      currentIndex: _selectedIndex,
+      onTap: (int index) {
+        setState(() {
+          _selectedIndex = index;
 
          });
        },
@@ -75,6 +80,7 @@ class _AdminPageState extends State<AdminPage> {
     ],
     ):null,
 
+
   body: Row(
 
     children: [
@@ -106,6 +112,8 @@ class _AdminPageState extends State<AdminPage> {
        NavigationRailDestination(
             icon: Icon(Icons.report),label: Text ('REPORTS')),
 
+
+
         NavigationRailDestination(
             icon: Icon(Icons.settings),label: Text( 'SETTINGS')),
 
@@ -115,9 +123,11 @@ class _AdminPageState extends State<AdminPage> {
         NavigationRailDestination(
             icon: Icon(Icons.logout_rounded), label: Text('LOG OUT')),
         ],
+        minWidth: 100,
       ),
      Expanded(child:  _widgetOptions.elementAt(_selectedIndex),)
 ],
+
   ),
     );}
 
