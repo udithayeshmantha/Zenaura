@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zenaura/screens/Main_tab_view.dart';
+import 'package:zenaura/screens/signup_page.dart';
 import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:zenaura/Services/authentication.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,10 +14,52 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formLoginKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> _formLoginKey = GlobalKey<FormState>();
   bool rememberPassword = true;
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void loginUser() async {
+    if (_formLoginKey.currentState!.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+      String res = await AuthServicews().loginUser(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      if (res == "success") {
+        setState(() {
+          isLoading = false;
+        });
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainTabview(),
+          ),
+        );
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(res)),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return CustomScaffold(
       child: Column(
         children: [
@@ -26,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Container(
               padding: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 20.0),
               decoration: const BoxDecoration(
@@ -54,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 25.0,
                       ),
                       TextFormField(
+                        controller: emailController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
@@ -64,6 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                           label: const Text('Email'),
                           hintText: 'Please Enter Email',
                           hintStyle: const TextStyle(
+                            color: Colors.black26,
+                          ),
+                          prefixIcon: const Icon(
+                            Icons.email,
                             color: Colors.black26,
                           ),
                           border: OutlineInputBorder(
@@ -84,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 25.0,
                       ),
                       TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                         obscuringCharacter: '*',
                         validator: (value) {
@@ -96,6 +146,10 @@ class _LoginPageState extends State<LoginPage> {
                           label: const Text('Password'),
                           hintText: 'Enter password',
                           hintStyle: const TextStyle(
+                            color: Colors.black26,
+                          ),
+                          prefixIcon: const Icon(
+                            Icons.lock,
                             color: Colors.black26,
                           ),
                           border: OutlineInputBorder(
@@ -154,29 +208,12 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-                            if (_formLoginKey.currentState!.validate() &&
-                                rememberPassword) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (e) => MainTabview(),
-                                ),
-                              );
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                ),
-                              );
-                            } else if (!rememberPassword) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
-                              );
-                            }
-                          },
-                          child: const Text('Log in'),
+                          onPressed: loginUser,
+                          child: isLoading
+                              ? const CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : const Text('Log in'),
                         ),
                       ),
                       const SizedBox(
@@ -221,6 +258,40 @@ class _LoginPageState extends State<LoginPage> {
                           Icon(BoxIcons.bxl_google),
                           Icon(BoxIcons.bxl_facebook),
                         ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Don't have an account? ",
+                            style: TextStyle(
+                              color: Colors.black45,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (e) => const SignUpPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Sign up',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: lightColorScheme.primary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
                       ),
                     ],
                   ),
