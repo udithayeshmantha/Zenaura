@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "831877140267",
+    "project_id": "zenconnect-bd454",
+    "storage_bucket": "zenconnect-bd454.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831877140267:android:153e76690b33b09fc13f6e",
+        "android_client_info": {
+          "package_name": "com.example.zenaura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU2H0Xym1WnFkgCPtMLl3cw3An3D5dCjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
