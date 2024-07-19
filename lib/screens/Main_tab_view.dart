@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart ';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:zenaura/maintab_screens/Home.dart';
+import 'package:zenaura/maintab_screens/NewHome.dart';
 
 class MainTabview extends StatefulWidget {
   const MainTabview({super.key});
@@ -13,7 +14,7 @@ class _MaintabviewState extends State<MainTabview> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text('Search'),
+    Newhome(),
     Text('Favourite'),
     Text('Profile')
   ];
