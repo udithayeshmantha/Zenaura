@@ -1,14 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:zenaura/admin/adminpage.dart';
-//import 'package:zenaura/admin/adminpages/navbar.dart';
+import 'package:zenaura/firebase_options.dart';
+import 'package:zenaura/screens/welcome_page.dart';
 
-// import 'package:zenaura/screens/welcome_page.dart';
-import 'package:zenaura/admin/them/them.dart';
-
-
-//import 'admin/adminpage.dart';
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -17,12 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-       debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Zenaura",
-      home:  const AdminPage(),
-      //theme: light,
-      darkTheme: dark,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const WelcomePage(),
     );
   }
 }
