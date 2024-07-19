@@ -59,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return CustomScaffold(
       child: Column(
         children: [
