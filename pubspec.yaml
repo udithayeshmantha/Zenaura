@@ -36,12 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   icons_plus: ^5.0.0
-<<<<<<< HEAD
-  google_nav_bar: ^5.0.6
-  sliding_clipped_nav_bar: ^3.1.1
-  fancy_bottom_navigation: ^0.3.3
-=======
->>>>>>> parent of ae26c9d (Update pubspec.yaml to include google_nav_bar dependency and made new bottomNavigationBar)
+  firebase_core: ^3.1.1
+  firebase_auth: ^5.1.1
+  cloud_firestore: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -52,7 +49,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

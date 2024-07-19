@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/screens/login_page.dart';
 import 'package:zenaura/themes/theme.dart';
 
 class MainTabview extends StatefulWidget {
@@ -21,7 +22,6 @@ class _MainTabviewState extends State<MainTabview>
       () {
         setState(() {
           selectTab = controller?.index ?? 0;
-          setState(() {});
         });
       },
     );
@@ -40,7 +40,30 @@ class _MainTabviewState extends State<MainTabview>
       body: TabBarView(
         controller: controller,
         children: [
-          Container(),
+          Container(
+            color: const Color.fromARGB(255, 11, 5, 40),
+            child: Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  minimumSize: const Size(64, 36),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                child: const Text("Logout"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+              ),
+            ),
+          ),
           Container(),
           Container(),
           Container(),
