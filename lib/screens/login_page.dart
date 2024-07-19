@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zenaura/screens/MainTabView.dart';
+import 'package:zenaura/screens/Main_tab_view.dart';
 import 'package:zenaura/themes/theme.dart';
 import 'package:zenaura/widgets/custom_scaffold.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -160,7 +160,11 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
+<<<<<<< HEAD
                                   builder: (e) => const Maintabview(),
+=======
+                                  builder: (e) => MainTabview(),
+>>>>>>> parent of ae26c9d (Update pubspec.yaml to include google_nav_bar dependency and made new bottomNavigationBar)
                                 ),
                               );
                               ScaffoldMessenger.of(context).showSnackBar(
