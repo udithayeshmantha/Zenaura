@@ -19,3 +19,4 @@ tasks.register("clean", Delete) {
 
 // Add the following line to update Gradle version
 wrapper.gradleVersion = '7.6.3'
+
