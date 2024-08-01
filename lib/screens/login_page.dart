@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/admin/admin_home.dart';
 import 'package:zenaura/screens/Main_tab_view.dart';
 import 'package:zenaura/screens/signup_page.dart';
 import 'package:zenaura/themes/theme.dart';
@@ -31,20 +32,31 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         isLoading = true;
       });
-      String res = await AuthServicews().loginUser(
+      Map<String, String> result = (await AuthServicews().loginUser(
         email: emailController.text,
         password: passwordController.text,
-      );
+      )) as Map<String, String>;
+      String res = result['res']!;
+      String role = result['role']!;
       if (res == "success") {
         setState(() {
           isLoading = false;
         });
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MainTabview(),
-          ),
-        );
+        if (role == "admin") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AdminHomePage(),
+            ),
+          );
+        } else if (role == "user") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MainTabview(),
+            ),
+          );
+        }
       } else {
         setState(() {
           isLoading = false;

@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:zenaura/Components/moodcard.dart';
+import 'package:zenaura/model/mood.dart';
+import 'package:zenaura/moods%20page/angry_mood_page.dart';
+import 'package:zenaura/moods%20page/happy_mood_page.dart';
+import 'package:zenaura/moods%20page/neutral_mood_page.dart';
+import 'package:zenaura/moods%20page/sad_mood_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,6 +14,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Mood> moods = [
+    Mood(
+      mood: 'Happy',
+      moodDescription: 'Feeling Happy',
+      Color: Colors.blue,
+      Page: HappyMoodPage(),
+    ),
+    Mood(
+      mood: 'Sad',
+      moodDescription: 'Feeling bad',
+      Color: Colors.purple,
+      Page: SadMoodPage(),
+    ),
+    Mood(
+      mood: 'Neutral',
+      moodDescription: 'Feeling neutral',
+      Color: Colors.green,
+      Page: NeutralMoodPage(),
+    ),
+    Mood(
+      mood: 'Angry',
+      moodDescription: 'Feeling angry',
+      Color: Colors.red,
+      Page: AngryMoodPage(),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,165 +51,67 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             height: double.infinity,
           ),
-          SafeArea(
+          Container(
             child: Column(
               children: [
                 Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'DAY 7',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            'Love and\nAccept\nYourself',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      ),
-                      Image.asset(
-                        'assets/images/Illustration girl.png',
-                        width: 150,
-                        height: 150,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
                   child: Container(
-                    padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 0.0),
                     decoration: const BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      ),
+                      color: Colors.black54,
                     ),
                     child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Today’s affirmation',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                      child: Container(
+                        padding: const EdgeInsets.only(top: 25, left: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 50,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'I am worthy of love and respect',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
+                            const Text(
+                              "Home",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w700),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Today’s task',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                            const SizedBox(
+                              height: 25,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'Sit in a quiet place and repeat the affirmation 10 times',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
+                            const Padding(
+                              padding: EdgeInsets.only(right: 25),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Moods",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Today’s goal',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                            const SizedBox(
+                              height: 15,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'Write down 3 things you love about yourself',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
+                            SizedBox(
+                              child: ListView.builder(
+                                controller: ScrollController(),
+                                shrinkWrap: true,
+                                itemCount: 4,
+                                itemBuilder: (context, index) {
+                                  return Moodcard(
+                                    mood: moods[index],
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Today’s affirmation',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'I am worthy of love and respect',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Today’s task',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'Sit in a quiet place and repeat the affirmation 10 times',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          )
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

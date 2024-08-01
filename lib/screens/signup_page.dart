@@ -18,7 +18,7 @@ class _SignUpScreenState extends State<SignUpPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formSignupKey = GlobalKey<FormState>();
-  bool agreePersonalData = true;
+  bool agreePersonalData = false;
   bool isLoading = false;
 
   @override
@@ -38,10 +38,11 @@ class _SignUpScreenState extends State<SignUpPage> {
         email: emailController.text,
         password: passwordController.text,
         name: nameController.text,
+        // Default role
       );
       if (res == "success") {
         setState(() {
-          isLoading = false;
+          isLoading = true;
         });
         Navigator.pushReplacement(
           context,
