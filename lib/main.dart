@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:zenaura/admin/admin_home.dart';
 import 'package:zenaura/firebase_options.dart';
+import 'package:zenaura/screens/Main_tab_view.dart';
 import 'package:zenaura/screens/welcome_page.dart';
 
 void main() async {

@@ -1,5 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart ';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:zenaura/maintab_screens/Home.dart';
+
+import 'package:zenaura/maintab_screens/Search.dart';
+import 'package:zenaura/admin/send_notification.dart';
+import 'package:zenaura/screens/Profile_page.dart';
+import 'package:zenaura/maintab_screens/favourite_page.dart';
+import 'package:zenaura/maintab_screens/notidf.dart';
 
 class MainTabview extends StatefulWidget {
   const MainTabview({super.key});
@@ -10,11 +18,11 @@ class MainTabview extends StatefulWidget {
 
 class _MaintabviewState extends State<MainTabview> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home'),
-    Text('Search'),
-    Text('Favourite'),
-    Text('Profile')
+  static List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    Notify(),
+    FavoriteSongsPage(),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,19 +49,19 @@ class _MaintabviewState extends State<MainTabview> {
             },
             tabs: const [
               GButton(
-                icon: Icons.home,
+                icon: Icons.home_outlined,
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.search,
-                text: 'Search',
+                icon: Icons.notifications_none_outlined,
+                text: 'Notifications',
               ),
               GButton(
-                icon: Icons.favorite,
-                text: 'Favourite',
+                icon: Icons.favorite_outline_rounded,
+                text: 'favorites',
               ),
               GButton(
-                icon: Icons.person,
+                icon: Icons.person_2_outlined,
                 text: 'Profile',
               ),
             ],
