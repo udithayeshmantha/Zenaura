@@ -1,119 +1,60 @@
-import 'package:flutter/material.dart';
-import 'package:zenaura/screens/login_page.dart';
-import 'package:zenaura/themes/theme.dart';
+import 'package:flutter/material.dart ';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MainTabview extends StatefulWidget {
   const MainTabview({super.key});
 
   @override
-  State<MainTabview> createState() => _MainTabviewState();
+  State<MainTabview> createState() => _MaintabviewState();
 }
 
-class _MainTabviewState extends State<MainTabview>
-    with SingleTickerProviderStateMixin {
-  TabController? controller;
-  int selectTab = 0;
-
-  @override
-  void initState() {
-    controller = TabController(length: 4, vsync: this);
-    super.initState();
-    controller?.addListener(
-      () {
-        setState(() {
-          selectTab = controller?.index ?? 0;
-        });
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
-  }
-
+class _MaintabviewState extends State<MainTabview> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home'),
+    Text('Search'),
+    Text('Favourite'),
+    Text('Profile')
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-      body: TabBarView(
-        controller: controller,
-        children: [
-          Container(
-            color: const Color.fromARGB(255, 11, 5, 40),
-            child: Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
-                  ),
-                  minimumSize: const Size(64, 36),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                child: const Text("Logout"),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-              ),
-            ),
-          ),
-          Container(),
-          Container(),
-          Container(),
-        ],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
-        ),
-        child: BottomAppBar(
-          color: Colors.transparent,
-          elevation: 0,
-          child: TabBar(
-            dividerColor: Colors.transparent,
-            controller: controller,
-            indicatorColor: Colors.transparent,
-            labelColor: Colors.transparent,
-            unselectedLabelColor: Colors.transparent,
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.home_filled,
-                  size: 30,
-                  color:
-                      selectTab == 0 ? lightColorScheme.primary : Colors.white,
-                ),
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
+          child: GNav(
+            backgroundColor: Colors.black,
+            color: Colors.white,
+            activeColor: Colors.white,
+            padding: const EdgeInsets.all(16),
+            tabBackgroundColor: const Color.fromARGB(255, 29, 29, 29),
+            gap: 8,
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
               ),
-              Tab(
-                icon: Icon(
-                  Icons.settings,
-                  size: 30,
-                  color:
-                      selectTab == 1 ? lightColorScheme.primary : Colors.white,
-                ),
+              GButton(
+                icon: Icons.search,
+                text: 'Search',
               ),
-              Tab(
-                icon: Icon(
-                  Icons.home,
-                  size: 30,
-                  color:
-                      selectTab == 2 ? lightColorScheme.primary : Colors.white,
-                ),
+              GButton(
+                icon: Icons.favorite,
+                text: 'Favourite',
               ),
-              Tab(
-                icon: Icon(
-                  Icons.account_circle_rounded,
-                  size: 30,
-                  color:
-                      selectTab == 3 ? lightColorScheme.primary : Colors.white,
-                ),
+              GButton(
+                icon: Icons.person,
+                text: 'Profile',
               ),
             ],
           ),
